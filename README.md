@@ -60,7 +60,7 @@ allowing them to create and manage office space seamlessly.
    ```
 5. Run on web:
    * Open Chrome web browser.
-   * On VSCode select current device to be <>Chrome web</b>, on the bottom right of VSCode.
+   * On VSCode select current device to be <b>Chrome web</b>, on the bottom right of VSCode.
    ```sh
    flutter run -d chrome
    ```

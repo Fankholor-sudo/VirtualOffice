@@ -29,6 +29,14 @@ on the client side, Node.js, Express and SQL on the server side, and SQLLite3 as
 This project aims to provide companies with a comprehensive system for managing office space, 
 allowing them to create and manage office space seamlessly.
 
+### Video preview.
+#### Android App Video.
+https://github.com/Fankholor-sudo/VirtualOffice/assets/54154030/20996940-e50e-49a4-954c-2441b9603e3a
+
+#### Chrome Web Video.
+https://github.com/Fankholor-sudo/VirtualOffice/assets/54154030/6ba7d8e1-90c0-47e8-98fc-1e607db02cb9
+
+
 ## Getting Started
 #### Allowing companies to manage office space virtually
 #### Responsive Mobile app

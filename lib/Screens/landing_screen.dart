@@ -6,6 +6,9 @@ import 'package:specno_client/Screens/edit_office.dart';
 import 'package:specno_client/Screens/office_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+final url = dotenv.env['LOCAL_URL'];
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -22,7 +25,7 @@ class _LandingScreenState extends State<LandingScreen> {
 
   Future<List<Map<String, dynamic>>> fetchOffice() async {
     final response = await http.get(
-      Uri.parse('http://10.0.2.2:3000/office'),
+      Uri.parse('$url/office'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Access-Control-Allow-Origin': '*',
@@ -39,7 +42,7 @@ class _LandingScreenState extends State<LandingScreen> {
 
   void getOfficesData() async {
     final data = await fetchOffice();
-    // data.sort((a, b) => a['OfficeName'].compareTo(b['OfficeName']));
+    
     setState(() {
       officeDataList = data.reversed.toList();
     });

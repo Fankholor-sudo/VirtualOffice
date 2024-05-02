@@ -5,6 +5,9 @@ import 'package:http/http.dart' as http;
 import 'package:specno_client/Components/animated_navigation.dart';
 import 'package:specno_client/Screens/landing_screen.dart';
 import 'package:uuid/uuid.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+final url = dotenv.env['LOCAL_URL'];
 
 class AddOffice extends StatefulWidget {
   const AddOffice({super.key});
@@ -32,8 +35,9 @@ class _AddOfficeState extends State<AddOffice> {
       maxCapacity,
       officeColor}) async {
     const uuid = Uuid();
+    //10.0.2.2
     final response = await http.post(
-      Uri.parse('http://10.0.2.2:3000/office'),
+      Uri.parse('$url/office'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Access-Control-Allow-Origin': '*',

@@ -6,6 +6,9 @@ import 'package:specno_client/Components/animated_navigation.dart';
 import 'package:specno_client/Screens/edit_office.dart';
 import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+final url = dotenv.env['LOCAL_URL'];
 
 class OfficeView extends StatefulWidget {
   final int imageIndex;
@@ -29,8 +32,7 @@ class _OfficeViewState extends State<OfficeView> {
 
   Future<List<Map<String, dynamic>>> fetchMembers() async {
     final response = await http.get(
-      Uri.parse(
-          'http://10.0.2.2:3000/member/?OfficeID=${widget.officeData['OfficeID']}'),
+      Uri.parse('$url/member/?OfficeID=${widget.officeData['OfficeID']}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Access-Control-Allow-Origin': '*',
@@ -501,7 +503,7 @@ class _OfficeViewState extends State<OfficeView> {
     void createMember({officeID, firstName, lastName, avatar}) async {
       const uuid = Uuid();
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:3000/member'),
+        Uri.parse('$url/member'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Access-Control-Allow-Origin': '*',
@@ -679,7 +681,7 @@ class _OfficeViewState extends State<OfficeView> {
                       ),
                     ],
                   ),
-                  Column(
+                  ListView(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -875,7 +877,7 @@ class _OfficeViewState extends State<OfficeView> {
 
     void editMember({memberID, firstName, lastName, avatar}) async {
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:3000/member/update'),
+        Uri.parse('$url/member/update'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Access-Control-Allow-Origin': '*',
@@ -1052,7 +1054,7 @@ class _OfficeViewState extends State<OfficeView> {
                       ),
                     ],
                   ),
-                  Column(
+                  ListView(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1232,8 +1234,7 @@ class _OfficeViewState extends State<OfficeView> {
 
     void deleteMember() async {
       final response = await http.delete(
-        Uri.parse(
-            'http://10.0.2.2:3000/member/?MemberID=${member['MemberID']}'),
+        Uri.parse('$url/member/?MemberID=${member['MemberID']}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Access-Control-Allow-Origin': '*',

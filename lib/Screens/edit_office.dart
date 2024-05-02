@@ -4,6 +4,9 @@ import 'package:flutter_material_color_picker/flutter_material_color_picker.dart
 import 'package:http/http.dart' as http;
 import 'package:specno_client/Components/animated_navigation.dart';
 import 'package:specno_client/Screens/landing_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+final url = dotenv.env['LOCAL_URL'];
 
 class EditOffice extends StatefulWidget {
   final Map<String, dynamic> officeData;
@@ -33,7 +36,7 @@ class _EditOfficeState extends State<EditOffice> {
       maxCapacity,
       officeColor}) async {
     final response = await http.post(
-      Uri.parse('http://10.0.2.2:3000/office/update'),
+      Uri.parse('$url/office/update'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Access-Control-Allow-Origin': '*',
@@ -59,8 +62,7 @@ class _EditOfficeState extends State<EditOffice> {
 
   void deleteOffice() async {
     final response = await http.delete(
-      Uri.parse(
-          'http://10.0.2.2:3000/office/?OfficeID=${widget.officeData['OfficeID']}'),
+      Uri.parse('$url/office/?OfficeID=${widget.officeData['OfficeID']}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Access-Control-Allow-Origin': '*',

@@ -55,12 +55,14 @@ allowing them to create and manage office space seamlessly.
 3. Run Android:
    * Run virtual device emulator from Android studio.
    * On VSCode select current device to be <b>Android Emulator</b>, on the bottom right of VSCode.
+   * Go to .env file and change the url to use host 10.0.2.2 <b>LOCAL_URL=http://10.0.2.2:3000</b>
    ```sh
    flutter run
    ```
 5. Run on web:
    * Open Chrome web browser.
    * On VSCode select current device to be <b>Chrome web</b>, on the bottom right of VSCode.
+   * Go to .env file and change the url to use host localhost <b>LOCAL_URL=http://localhost:3000</b>
    ```sh
    flutter run -d chrome
    ```

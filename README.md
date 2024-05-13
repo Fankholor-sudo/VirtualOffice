@@ -28,7 +28,7 @@ https://github.com/Fankholor-sudo/VirtualOfficeBackend
 ### About The Project
 
 Welcome to Virtual Office app, this virtual office app is built with Flutter (Dart)
-on the client side, Node.js, Express and SQL on the server side, and SQLLite3 as the database. 
+on the client side and Node.js, Express and SQL on the server side, and SQLLite3 as the database. 
 This project aims to provide companies with a comprehensive system for managing office space, 
 allowing them to create and manage office space seamlessly.
 
